@@ -1,0 +1,28 @@
+{
+    "name": "@plcmp/pl-flex-layout",
+    "version": "0.0.1",
+    "description": "Simple flex container component.",
+    "main": "pl-flex-layout.js",
+    "repository": {
+        "url": "https://github.com/plcmp/pl-flex-layout.git"
+    },
+    "license": "MIT",
+    "type": "module",
+    "author": {
+        "name": "Azat Yamalov",
+        "email": "boikovdv@live.com"
+    },
+    "contributors": [
+        {
+            "name": "Dmitry Boikov",
+            "email": "boikovdv@gmail.com"
+        },
+        {
+            "name": "Andrey Maksimov",
+            "email": "andrmaxmail@gmail.com"
+        }
+    ],
+    "dependencies": {
+        "polylib": "^1.0.0"
+    }
+}

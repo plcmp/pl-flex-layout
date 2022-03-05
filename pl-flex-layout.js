@@ -32,6 +32,10 @@ class PlFlexLayout extends PlElement {
                 type: String,
                 reflectToAttribute: true,
                 value: 'flex-start'
+            },
+            hidden: {
+                type: Boolean,
+                reflectToAttribute: true
             }
         };
     }
@@ -50,6 +54,10 @@ class PlFlexLayout extends PlElement {
                 box-sizing: border-box;
                 overflow: hidden;
                 flex-shrink: 0;
+            }
+
+            :host([hidden]) {
+                display: none;
             }
 
             :host([vertical]) {

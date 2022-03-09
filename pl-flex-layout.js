@@ -47,7 +47,7 @@ class PlFlexLayout extends PlElement {
                 flex-direction: row;
                 align-items: flex-start;
                 justify-content: flex-start;
-                gap: 12px;
+                gap: 8px;
                 width: fit-content;
                 height: fit-content;
                 position: relative;

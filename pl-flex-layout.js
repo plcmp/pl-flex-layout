@@ -43,17 +43,19 @@ class PlFlexLayout extends PlElement {
     static get css() {
         return css`
             :host {
+                --flex-layout-gap: var(--space-md);
+
                 display: flex;
                 flex-direction: row;
                 align-items: flex-start;
                 justify-content: flex-start;
-                gap: 8px;
                 width: fit-content;
                 height: fit-content;
                 position: relative;
                 box-sizing: border-box;
                 overflow: hidden;
                 flex-shrink: 0;
+                gap: var(--flex-layout-gap);
             }
 
             :host([hidden]) {

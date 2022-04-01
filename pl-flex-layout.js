@@ -75,7 +75,7 @@ class PlFlexLayout extends PlElement {
             }
 
             :host([stretch]) {
-                width: 100% !important;
+                width: 100%;
             }
 
             :host([vertical][stretch]) {
@@ -83,8 +83,8 @@ class PlFlexLayout extends PlElement {
             }
 
             :host([fit]) {
-                height: 100% !important;
-                width: 100% !important;
+                height: 100%;
+                width: 100%;
                 flex-shrink: 1;
             }
 

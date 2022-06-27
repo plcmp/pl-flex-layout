@@ -36,6 +36,10 @@ class PlFlexLayout extends PlElement {
             hidden: {
                 type: Boolean,
                 reflectToAttribute: true
+            },
+            labelWidth: {
+                type: Number,
+                observer: '_labelWidthObserver'
             }
         };
     }
@@ -43,8 +47,6 @@ class PlFlexLayout extends PlElement {
     static get css() {
         return css`
             :host {
-                --flex-layout-gap: var(--space-md);
-
                 display: flex;
                 flex-direction: row;
                 align-items: flex-start;
@@ -55,15 +57,22 @@ class PlFlexLayout extends PlElement {
                 box-sizing: border-box;
                 overflow: hidden;
                 flex-shrink: 0;
-                gap: var(--flex-layout-gap);
+                gap: var(--space-md);
+                --has-padding: 1;
             }
 
+            
             :host([hidden]) {
                 display: none;
             }
 
             :host([vertical]) {
                 flex-direction: column;
+                --has-padding: 0;
+            }
+
+            :host(:not([vertical])) ::slotted(*:first-child) {
+                --has-padding: 0;
             }
 
             :host([wrap]) {
@@ -127,6 +136,11 @@ class PlFlexLayout extends PlElement {
             <slot></slot>
         `
     };
+
+    _labelWidthObserver(val) {
+        this.style.setProperty('--label-width', val + 'px');
+        this.style.setProperty('padding-left', val + 'px');
+    }
 }
 
 customElements.define('pl-flex-layout', PlFlexLayout);

@@ -36,6 +36,10 @@ class PlFlexLayout extends PlElement {
             hidden: {
                 type: Boolean,
                 reflectToAttribute: true
+            },
+            labelWidth: {
+                type: Number,
+                observer: '_labelWidthObserver'
             }
         };
     }
@@ -43,8 +47,6 @@ class PlFlexLayout extends PlElement {
     static get css() {
         return css`
             :host {
-                --flex-layout-gap: var(--space-md);
-
                 display: flex;
                 flex-direction: row;
                 align-items: flex-start;
@@ -55,9 +57,10 @@ class PlFlexLayout extends PlElement {
                 box-sizing: border-box;
                 overflow: hidden;
                 flex-shrink: 0;
-                gap: var(--flex-layout-gap);
+                gap: var(--space-md);
             }
 
+            
             :host([hidden]) {
                 display: none;
             }
@@ -122,11 +125,20 @@ class PlFlexLayout extends PlElement {
        `;
     }
 
-    static get template() { 
+    static get template() {
         return html`
             <slot></slot>
         `
     };
+
+    _labelWidthObserver(val) {
+        this.style.setProperty('--label-width', val + 'px');
+        this.querySelectorAll('*').forEach((el) => {
+            if (el.hasProp && el.hasProp('orientation') && !el.orientation) {
+                el.orientation = 'horizontal';
+            }
+        });
+    }
 }
 
 customElements.define('pl-flex-layout', PlFlexLayout);

@@ -1,6 +1,6 @@
 {
     "name": "@plcmp/pl-flex-layout",
-    "version": "0.1.10",
+    "version": "0.1.11",
     "description": "Simple flex container component.",
     "main": "pl-flex-layout.js",
     "repository": {
@@ -23,6 +23,6 @@
         }
     ],
     "dependencies": {
-        "polylib": "^1.0.0"
+        "polylib": "^1.1.8"
     }
 }

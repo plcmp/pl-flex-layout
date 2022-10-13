@@ -52,7 +52,6 @@ class PlFlexLayout extends PlElement {
             height: fit-content;
             position: relative;
             box-sizing: border-box;
-            overflow: hidden;
             flex-shrink: 0;
             gap: var(--space-md);
         }
@@ -77,7 +76,6 @@ class PlFlexLayout extends PlElement {
         :host([stretch]) {
             width: 100%;
             flex-shrink: 1;
-            overflow: visible;
         }
 
         :host([fit]) {

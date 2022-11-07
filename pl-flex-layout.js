@@ -53,8 +53,6 @@ class PlFlexLayout extends PlElement {
             position: relative;
             box-sizing: border-box;
             gap: var(--space-md);
-            min-width: 0;
-            max-width: 100%;
         }
 
         
@@ -76,11 +74,15 @@ class PlFlexLayout extends PlElement {
 
         :host([stretch]) {
             width: 100%;
+            min-width: 0;
+            max-width: 100%;
         }
 
         :host([fit]) {
             height: 100%;
             width: 100%;
+            min-width: 0;
+            max-width: 100%;
         }
 
         :host([justify=flex-start]) {

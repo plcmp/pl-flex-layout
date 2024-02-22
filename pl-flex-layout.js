@@ -52,7 +52,7 @@ class PlFlexLayout extends PlElement {
             height: fit-content;
             position: relative;
             box-sizing: border-box;
-            gap: var(--space-md);
+            gap: var(--pl-space-md);
         }
 
         
@@ -123,7 +123,7 @@ class PlFlexLayout extends PlElement {
     `
 
 _labelWidthObserver(val) {
-    this.style.setProperty('--label-width', val + 'px');
+    this.style.setProperty('--pl-label-width', val + 'px');
     this.querySelectorAll('*').forEach((el) => {
         if (el.hasProp && el.hasProp('orientation') && !el.orientation) {
             el.orientation = 'horizontal';

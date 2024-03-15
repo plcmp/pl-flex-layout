@@ -39,10 +39,15 @@ class PlFlexLayout extends PlElement {
         labelWidth: {
             type: Number,
             observer: '_labelWidthObserver'
+        },
+        gap: {
+            type: Number,
+            reflectToAttribute: true,
+            observer: '_gapObserver'
         }
     };
 
-    static  css = css`
+    static css = css`
         :host {
             display: flex;
             flex-direction: row;
@@ -122,14 +127,20 @@ class PlFlexLayout extends PlElement {
         <slot></slot>
     `
 
-_labelWidthObserver(val) {
-    this.style.setProperty('--pl-label-width', val + 'px');
-    this.querySelectorAll('*').forEach((el) => {
-        if (el.hasProp && el.hasProp('orientation') && !el.orientation) {
-            el.orientation = 'horizontal';
+    _labelWidthObserver(val) {
+        this.style.setProperty('--pl-label-width', val + 'px');
+        this.querySelectorAll('*').forEach((el) => {
+            if (el.hasProp && el.hasProp('orientation') && !el.orientation) {
+                el.orientation = 'horizontal';
+            }
+        });
+    }
+
+    _gapObserver(val) {
+        if(val) {
+            this.style.setProperty('gap', val + 'px');
         }
-    });
-}
+    }
 }
 
 customElements.define('pl-flex-layout', PlFlexLayout);
